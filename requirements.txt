@@ -1,0 +1,4 @@
+flask==0.12.2
+gunicorn
+sqlite3
+markdown
