@@ -2,12 +2,17 @@ import sqlite3
 import time
 from flask import Flask, Markup
 import markdown
+from crawl_jobs import *
+from datetime import datetime
+
 app = Flask(__name__)
 conn = sqlite3.connect('jobs.db', check_same_thread=False)
 c = conn.cursor()
+now = datetime.now()
+if now.hour == 21 and now.minute == 16 and now.second == 30:
+    crawl_jobs()
 
-
-@app.route("/")
+@app.route("/jobs")
 def list_jobs():
     data = c.execute("SELECT * FROM jobs;").fetchall()
     conn.commit()
@@ -26,12 +31,13 @@ def list_jobs():
     format_result = '''
                 <html lang="en">
                 <head>
-                <title>My first Web</title>
+                <title>Tech jobs</title>
                 </head>
 
                 <body>
-                <h1>List Open Jobs</h1>
-                Click each link below for more informations
+                <h2 style="text-align: center;">Tech jobs website</h2>
+                <p style="text-align: center;"><a href='https://www.linkedin.com/in/noahz110/'>About me</a></p>
+                <p style="text-align: center;">Click each link below for more informations</p>
                 {}
                 </body>
 
