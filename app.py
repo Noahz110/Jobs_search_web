@@ -16,7 +16,7 @@ if now.hour == 21 and now.minute == 16 and now.second == 30:
 @app.route("/")
 def home():
     result = '''<HTML>
-<HEAD> <TITLE>Tech jobs</TITLE> </HEAD>
+<HEAD> <TITLE>Tech Jobs</TITLE> </HEAD>
 <BODY>
     <h2 style="text-align: center;font-size:200%;">Tech jobs in Vietnam website</h2>
     <p style="text-align: center;font-size:120%;"><a href='/jobs'>Click Here!</a></p>

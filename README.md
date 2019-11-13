@@ -8,4 +8,4 @@ list of open jobs
 - run git push heroku master
 - done
 
-result: https://murmuring-savannah-60669.herokuapp.com/
+result: https://vntechjob.herokuapp.com/
