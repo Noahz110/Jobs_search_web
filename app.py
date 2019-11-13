@@ -12,6 +12,20 @@ now = datetime.now()
 if now.hour == 21 and now.minute == 16 and now.second == 30:
     crawl_jobs()
 
+
+@app.route("/")
+def home():
+    result = '''<HTML>
+<HEAD> <TITLE>Tech jobs</TITLE> </HEAD>
+<BODY>
+    <h2 style="text-align: center;font-size:200%;">Tech jobs in Vietnam website</h2>
+    <p style="text-align: center;font-size:120%;"><a href='/jobs'>Click Here!</a></p>
+    <p style="text-align: center;"><IMG  SRC="https://i.ibb.co/PDgStgW/49124851-1646914502274844-8756304977753800704-n.png">
+    <p style="text-align: center;font-size:120%;"><a href='https://www.linkedin.com/in/noahz110/'>About me</a></p>
+</BODY>
+</HTML>'''
+    return result
+
 @app.route("/jobs")
 def list_jobs():
     data = c.execute("SELECT * FROM jobs;").fetchall()
@@ -36,8 +50,7 @@ def list_jobs():
 
                 <body>
                 <h2 style="text-align: center;">Tech jobs website</h2>
-                <p style="text-align: center;"><a href='https://www.linkedin.com/in/noahz110/'>About me</a></p>
-                <p style="text-align: center;">Click each link below for more informations</p>
+                <p style="text-align: center;">Click each link below for more informations or <a href='/'>Back</a></p>
                 {}
                 </body>
 
@@ -55,7 +68,7 @@ def job_details(job_id_input):
             job_description = Markup(markdown.markdown(details))
             a = "<p>{}</p>".format(job_description)
             b = "<h2>{}</h2>".format(title)
-            result = '<ul>' + "<br>" + b + "<br>" + a + "</ul>"
+            result = '<ul>' + "<br>" + b + "<br>" + a + "</ul>" + '''<p style="text-align: center;font-size:120%;"><a href='/jobs'>Back</a></p>'''
             return result
 
 
