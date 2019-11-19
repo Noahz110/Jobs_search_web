@@ -2,15 +2,10 @@ import sqlite3
 import time
 from flask import Flask, Markup
 import markdown
-from crawl_jobs import *
-from datetime import datetime
 
 app = Flask(__name__)
 conn = sqlite3.connect('jobs.db', check_same_thread=False)
 c = conn.cursor()
-now = datetime.now()
-if now.hour == 21 and now.minute == 16 and now.second == 30:
-    crawl_jobs()
 
 
 @app.route("/")

@@ -1,6 +1,6 @@
 # Jobs_search_web
 list of open jobs
-- Run crawl_jobs.py to create database jobs.db using sqlite3
+- Run worker.py to create database jobs.db using sqlite3 everyday
 - init git
 - install heroku (https://devcenter.heroku.com/articles/getting-started-with-python#set-up)
 - run heroku create in the working folder (require : Procifle and requirements.txt)
